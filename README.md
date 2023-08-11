@@ -1,8 +1,8 @@
 # React + TypeScript + Vite
 
-Website: https://autosearch-bar.netlify.app
-Data Fetched by using [FakeStoreApi](https://fakestoreapi.com/products)
-Functionality with Arrow-key Up , Down & Enter for Selecting Items with smooth scroll transition
+Website: https://autosearch-bar.netlify.app <br>
+Data Fetched by using [FakeStoreApi](https://fakestoreapi.com/products) <br>
+Functionality with Arrow-key Up , Down & Enter for Selecting Items with smooth scroll transition<br>
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
