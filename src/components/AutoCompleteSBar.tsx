@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ChangeEvent,KeyboardEvent, useEffect, useRef, useState } from "react";
+import { ChangeEvent, KeyboardEvent, useEffect, useRef, useState } from "react";
 import ProductLists from "./ProductLists";
 
 type Product = {
@@ -32,31 +32,31 @@ export default function AutoCompleteSBar() {
       )
     );
   };
-  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) =>{
-    if(e.key === 'ArrowUp'){
-        setSelectedProductIndex(prevIndex =>{
-            return prevIndex === -1 ? searchResults.length - 1 : prevIndex - 1;
-        })
-    } else if (e.key === 'ArrowDown'){
-        setSelectedProductIndex(prevIndex =>{
-            return prevIndex >= searchResults.length?  0 : prevIndex + 1 ;
-        })
-    } else if(e.key === 'Enter'){
-        if (selectedProductIndex !== -1) {
-            const selectedProduct = searchResults[selectedProductIndex];
-            alert(`You selected ${selectedProduct.title}`);
-            setQuery("");
-            setSelectedProductIndex(-1);
-            setSearchResults([]);
-          }
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'ArrowUp') {
+      setSelectedProductIndex(prevIndex => {
+        return prevIndex === -1 ? searchResults.length - 1 : prevIndex - 1;
+      })
+    } else if (e.key === 'ArrowDown') {
+      setSelectedProductIndex(prevIndex => {
+        return prevIndex >= searchResults.length ? 0 : prevIndex + 1;
+      })
+    } else if (e.key === 'Enter') {
+      if (selectedProductIndex !== -1) {
+        const selectedProduct = searchResults[selectedProductIndex];
+        alert(`You selected ${selectedProduct.title}`);
+        setQuery("");
+        setSelectedProductIndex(-1);
+        setSearchResults([]);
+      }
     }
   }
 
-  function handleProductClick(product: Product){
+  function handleProductClick(product: Product) {
     alert(`You have selected ${product.title}`)
     setQuery('');
     setSearchResults([]);
-}
+  }
 
   return (
     <div className="font-FiraCode flex flex-col max-w-lg mx-auto mt-20">
@@ -70,13 +70,13 @@ export default function AutoCompleteSBar() {
                          focus:border-blue-500"
         onChange={handleQueryChange}
         onKeyDown={handleKeyDown}
-        value= { query }
+        value={query}
         ref={inputRef}
         placeholder="Search Product"
       />
       {query !== '' && searchResults.length > 0 && (
-        <ProductLists products = {searchResults}  selectedProductIndex = {selectedProductIndex} handleProductClick = {handleProductClick}/>
-      ) }
+        <ProductLists products={searchResults} selectedProductIndex={selectedProductIndex} handleProductClick={handleProductClick} />
+      )}
     </div>
   );
 }
